@@ -57,7 +57,7 @@ def pad(s):
     return s + b"\0" * padding_size, padding_size
 
 
-def encrypt(message, key, key_size=256):
+def encrypt(message, key):
     message, padding_size = pad(message)
     iv = Random.new().read(AES.block_size)
     cipher = AES.new(key, AES.MODE_CFB, iv)
@@ -87,8 +87,8 @@ def decrypt_file(filePATH, key):
     with open(filePATH, 'rb+') as in_file:
         plaintext = in_file.read()
         in_file.seek(0)
-        enc = decrypt(plaintext, key)
-        in_file.write(enc)
+        dec = decrypt(plaintext, key)
+        in_file.write(dec)
         in_file.truncate()
     in_file.close()
 
