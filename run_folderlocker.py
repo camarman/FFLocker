@@ -13,6 +13,8 @@
 # .wav
 # .m4a
 
+# Note: It may also work for other types of file
+
 # ----- Importing Modules ----- #
 
 import os
@@ -127,4 +129,4 @@ folderPATH = r'C:\Users\Arman\Desktop\TestFolder'
 
 encrypt_folder(folderPATH, key)
 
-decrypt_folder(folderPATH, key)
+# decrypt_folder(folderPATH, key)

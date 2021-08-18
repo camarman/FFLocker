@@ -13,6 +13,8 @@
 # .wav
 # .m4a
 
+# Note: It may also work for other types of file
+
 # ----- Importing Modules ----- #
 
 import secrets
