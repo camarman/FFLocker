@@ -17,6 +17,7 @@
 
 # ----- Importing Modules ----- #
 
+import os
 import secrets
 
 from Crypto import Random
@@ -79,17 +80,19 @@ def encrypt_file(filePATH, key):
         enc = encrypt(plaintext, key)
         in_file.write(enc)
         in_file.truncate()
+    encfilePATH = filePATH + 'enc'
+    os.rename(filePATH, encfilePATH)
     in_file.close()
 
 
-def decrypt_file(filePATH, key):
-    with open(filePATH, 'rb+') as in_file:
+def decrypt_file(encfilePATH, key):
+    with open(encfilePATH, 'rb+') as in_file:
         plaintext = in_file.read()
-        in_file.seek(0)
         dec = decrypt(plaintext, key)
-        in_file.write(dec)
-        in_file.truncate()
-    in_file.close()
+    filePATH = encfilePATH[:-3]
+    with open(filePATH, 'wb') as out_file:
+        out_file.write(dec)
+    out_file.close()
 
 #----- User Inputs -----#
 
@@ -103,10 +106,28 @@ message = 'no clear mind...'
 key = generate_user_entered_key(message)
 
 # The path of the folder that you want to encrypt
-filePATH = r'C:\Users\Arman\Desktop\test.jpg'
+filePATH = r'C:\Users\Arman\Desktop\TestFolder\test.jpg'
+
+# The path of the folder that you want to decrypt
+encfilePATH = r'C:\Users\Arman\Desktop\TestFolder\test.jpgenc'
 
 #----- Running Locker ------#
 
-# encrypt_file(filePATH, key)
+def run_filelocker_encryption(filePATH, key):
+    if filePATH[-3:] == 'enc':
+        raise TypeError('The encryption cannot be performed on .enc files')
+    elif filePATH[-3:] != 'enc':
+        encrypt_file(filePATH, key)
 
-decrypt_file(filePATH, key)
+
+def run_filelocker_decryption(encfilePATH, key):
+    if encfilePATH[-3:] != 'enc':
+        raise TypeError('The decryption cannot be performed on non .enc files')
+    else:
+        decrypt_file(encfilePATH, key)
+
+#TODO: Fix the error problems, Improve the user interface with commends
+
+# run_filelocker_encryption(filePATH, key)
+
+run_filelocker_decryption(encfilePATH, key)
