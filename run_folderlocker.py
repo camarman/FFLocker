@@ -1,6 +1,6 @@
-#----- Folder Locker for Windows -----#
+#----- Folder Locker for Windows OS -----#
 
-#--- It works for ---#
+#--- The program can encrypt these file types---#
 
 # .jpg
 # .txt
@@ -13,12 +13,13 @@
 # .wav
 # .m4a
 
-# Note: It may also work for other types of file
+# Note: It may encrypt other file types
 
 # ----- Importing Modules ----- #
 
 import os
 import secrets
+from time import sleep
 
 from Crypto import Random
 from Crypto.Cipher import AES
