@@ -13,12 +13,14 @@
 # .wav
 # .m4a
 
-# Note: It may encrypt other file types
+# Note: It may encrypt other file types as well
 
 # ----- Importing Modules ----- #
 
 import os
 import secrets
+import shutil
+from pathlib import Path
 from time import sleep
 
 from Crypto import Random
@@ -26,32 +28,28 @@ from Crypto.Cipher import AES
 
 # ----- Generating Random Keys ----- #
 
+
 def generate_key(nbytes):
     return secrets.token_bytes(nbytes)
 
-
-def generate_printible_hex_key(nbytes):
-    key_bytes = str.encode(secrets.token_hex(nbytes))
-    return key_bytes
-
-
-def generate_printible_key(nbytes):
-    key_bytes = str.encode(secrets.token_urlsafe(nbytes))
-    return key_bytes
-
 # ----- Generating User Entered Key ----- #
 
-def generate_user_entered_key(message):
+
+def generate_user_entered_key():
     avaliable_nbytes = [16, 24, 32]
-    messageLen = len(message)
-    if messageLen in avaliable_nbytes:
-        key_bytes = str.encode(message)
-        return key_bytes
-    else:
-        raise ValueError(
-            'Your message has {} characters. The length of the message must be 16, 24 or 32'.format(messageLen))
+    keyLen = 0
+    while keyLen not in avaliable_nbytes:
+        key = input('\nEnter a Key:')
+        keyLen = len(key)
+        if keyLen in avaliable_nbytes:
+            key_bytes = str.encode(key)
+            return key_bytes
+        else:
+            print(
+                'Your key has {} characters. The length of the key must be 16, 24 or 32'.format(keyLen))
 
 # ----- Main Functions ----- #
+
 
 def pad(s):
     padding_size = AES.block_size - len(s) % AES.block_size
@@ -81,17 +79,18 @@ def encrypt_file(filePATH, key):
         enc = encrypt(plaintext, key)
         in_file.write(enc)
         in_file.truncate()
+    encfilePATH = filePATH + '.enc'
+    os.rename(filePATH, encfilePATH)
     in_file.close()
 
 
-def decrypt_file(filePATH, key):
-    with open(filePATH, 'rb+') as in_file:
+def decrypt_file(encfolderPATH, encfilePATH, key):
+    with open(encfilePATH, 'rb+') as in_file:
         plaintext = in_file.read()
-        in_file.seek(0)
         dec = decrypt(plaintext, key)
-        in_file.write(dec)
-        in_file.truncate()
-    in_file.close()
+    with open(encfolderPATH[:-3] + encfilePATH[len(encfolderPATH):-4], 'wb') as out_file:
+        out_file.write(dec)
+    out_file.close()
 
 
 def get_all_filePaths(folderPATH):
@@ -101,33 +100,137 @@ def get_all_filePaths(folderPATH):
                       for filename in filenames])
     return result
 
+
+def get_all_folderPATHS(folderPATH):
+    folderPATHS = []
+    for dirpath, dirnames, filenames in os.walk(folderPATH):
+        folderPATHS.append(dirpath)
+    return folderPATHS
+
+
+def mkdir_folder(folderPATHS):
+    mainfolderPATH = folderPATHS[0][:-3]
+    p = Path(mainfolderPATH)
+    p.mkdir(parents=True, exist_ok=True)
+    for folderPATH in folderPATHS[1:]:
+        folderPATH = mainfolderPATH + folderPATH[len(mainfolderPATH)+3:]
+        p = Path(folderPATH)
+        p.mkdir(parents=True, exist_ok=True)
+
 # ----- Encrypting/Decrypting every file inside a folder ----- #
+
 
 def encrypt_folder(folderPATH, key):
     for filePATH in get_all_filePaths(folderPATH):
         encrypt_file(filePATH, key)
+    encfolderPATH = folderPATH + 'ENC'
+    os.rename(folderPATH, encfolderPATH)
 
 
-def decrypt_folder(folderPATH, key):
-    for filePATH in get_all_filePaths(folderPATH):
-        decrypt_file(filePATH, key)
-
-#----- User Inputs -----#
-
-# If you want to generate a random key enter this information
-nbytes = 16  # The num of bytes can be 16, 24, or 32 (128, 192, 256 bits)
-
-# if you want to generate personalized key, enter a message
-message = 'Always Wishing You Were?'
-
-# Generated key via user input
-key = generate_user_entered_key(message)
-
-# The path of the folder that you want to encrypt
-folderPATH = r'C:\Users\Arman\Desktop\TestFolder'
+def decrypt_folder(encfolderPATH, key):
+    for encfilePATH in get_all_filePaths(encfolderPATH):
+        decrypt_file(encfolderPATH, encfilePATH, key)
 
 #----- Running Locker ------#
 
-encrypt_folder(folderPATH, key)
 
-# decrypt_folder(folderPATH, key)
+def run_folderlocker_encryption():
+    print('\nPlease type the path of the folder')
+    folderPATH = r'{}'.format(input(''))
+    if folderPATH[-3:] == 'ENC':
+        raise TypeError(
+            'The encryption cannot be performed on the ENC folders')
+    elif folderPATH[-3:] != 'ENC':
+        print('\nPlease choose an encryption option')
+        print('------------')
+        print('Type "rk" to generate random key')
+        print('Type "uk" to create key yourself')
+        print('------------')
+        key_type = input('Key Type:')
+        # Generated key via user input
+        if key_type == 'uk':
+            key = generate_user_entered_key()
+            print('\nIMPORTANT: Save this key to decrypt your folder in the future!')
+            print('KEY:{}\n'.format(key.decode('utf-8')))
+            print('Encrypting the folder...')
+            sleep(1.5)
+            encrypt_folder(folderPATH, key)
+            print('Encryption is successful!')
+            print('Exiting...')
+
+        # Generating random keys
+        elif key_type == 'rk':
+            nbytes = 0
+            while nbytes not in [16, 24, 32]:
+                print('\nPlease enter the number of bytes in the key - (16, 24, 32)')
+                nbytes = int(input('Byte num:'))
+                if nbytes in [16, 24, 32]:
+                    print('Generating random key...\n')
+                    sleep(1.5)
+                    key = generate_key(nbytes)
+                    print(
+                        '\nIMPORTANT: Save this key to decrypt your folder in the future!')
+                    print('KEY:{}\n'.format(key.hex()))
+                    print('Encrypting the folder...')
+                    sleep(1.5)
+                    encrypt_folder(folderPATH, key)
+                    print('Encryption is successful!')
+                    print('Exiting...')
+                else:
+                    print('Error: Please type one of the commands given above!')
+        else:
+            raise ValueError('Please type one of the commands given above!')
+            print('Exiting...')
+
+
+def run_folderlocker_decryption():
+    print('\nPlease type the path of the folder')
+    encfolderPATH = r'{}'.format(input(''))
+    if encfolderPATH[-3:] != 'ENC':
+        raise TypeError(
+            'The decryption cannot be performed on the non ENC folders')
+    else:
+        print('\nPlease enter the key to decrypt the folder')
+        key = input('Key:')
+        try:
+            # if the key is generated from random bytes
+            key = bytes.fromhex(key)
+        except:
+            # if the key is generated by the user input
+            key = str.encode(key)
+        print('\nDecrypting the folder...')
+        sleep(1.5)
+        mkdir_folder(get_all_folderPATHS(encfolderPATH))
+        try:
+            decrypt_folder(encfolderPATH, key)
+            print('\nDecryption is successful!')
+            print('\nDo you want to remove the encrypted folder? y/n')
+            answer = input('')
+            if answer == 'y':
+                shutil.rmtree(encfolderPATH)
+                print('\nRemoving the encrypted folder...')
+                sleep(1.5)
+            elif answer == 'n':
+                pass
+            else:
+                print('Error: Please type one of the commands given above!')
+            print('Exiting...')
+        except:
+            print('\nDecryption is not successful!')
+            print('Please enter a correct key')
+            print('Exiting...')
+
+
+def run_folderlocker():
+    print('--Welcome to the Folder Locker--\n')
+    print('Do you want to encrypt(e) or decrypt(d) the folder?  e/d')
+    answer = input('')
+    if answer == 'e':
+        run_folderlocker_encryption()
+    elif answer == 'd':
+        run_folderlocker_decryption()
+    else:
+        raise ValueError('Please type one of the commands given above!')
+
+
+run_folderlocker()
