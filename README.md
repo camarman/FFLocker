@@ -16,7 +16,6 @@ A snapshot of the encryption process for a pdf file
 
 ![filelocker](https://user-images.githubusercontent.com/45866787/130237326-3cf06735-c1c1-449d-8fb3-a609715d0d68.png)
 
-
 A snapshot of the decryption process for the same pdf.
 
 ![decry](https://user-images.githubusercontent.com/45866787/130237348-fc24783e-bb19-4d6d-9e0b-7fc72a5f3197.png)
