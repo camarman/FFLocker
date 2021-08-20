@@ -12,10 +12,11 @@ I have programmed the code so that when you decrypt the folder, a new folder wil
 
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
-A cmd snapshot of the encryption process
+A snapshot of the encryption process for a pdf file
 
-![enc](https://user-images.githubusercontent.com/45866787/130187213-567f019a-1b08-4c77-b799-06797bdb4ee4.png)
+![filelocker](https://user-images.githubusercontent.com/45866787/130237326-3cf06735-c1c1-449d-8fb3-a609715d0d68.png)
 
-A cmd snapshot of the decryption process
 
-![dec](https://user-images.githubusercontent.com/45866787/130187230-d8bf8377-9101-49d4-add4-1e4161677079.png)
+A snapshot of the decryption process for the same pdf.
+
+![decry](https://user-images.githubusercontent.com/45866787/130237348-fc24783e-bb19-4d6d-9e0b-7fc72a5f3197.png)
