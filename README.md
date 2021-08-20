@@ -14,4 +14,8 @@ After the decryption is complete, you can permanently delete the encrypted folde
 
 A cmd snapshot of the encryption process
 
+![enc](https://user-images.githubusercontent.com/45866787/130187213-567f019a-1b08-4c77-b799-06797bdb4ee4.png)
+
 A cmd snapshot of the decryption process
+
+![dec](https://user-images.githubusercontent.com/45866787/130187230-d8bf8377-9101-49d4-add4-1e4161677079.png)
