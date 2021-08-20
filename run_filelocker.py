@@ -178,8 +178,6 @@ def run_filelocker_decryption():
             print('Please enter a correct key')
             print('Exiting...')
 
-#----- User Inputs -----#
-
 
 def run_filelocker():
     print('--Welcome to the File Locker--\n')
