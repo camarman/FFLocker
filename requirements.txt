@@ -1,0 +1,15 @@
+For run_filelocker.py
+
+1. os
+2. secrets
+3. time
+4. pycryptodome (for Crypto)
+
+For run_folderlocker.py
+
+1. os
+2. secrets
+3. shutil
+4. pathlib
+5. time
+6. pycryptodome (for Crypto)
