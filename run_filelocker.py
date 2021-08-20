@@ -24,7 +24,7 @@ from time import sleep
 from Crypto import Random
 from Crypto.Cipher import AES
 
-# ----- Generating Random Keys ----- #
+# ----- Generating Random Key ----- #
 
 
 def generate_key(nbytes):
