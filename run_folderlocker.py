@@ -217,7 +217,7 @@ def run_folderlocker_decryption():
             else:
                 flag_answer = False
         if answer == 'y':
-            shutil.rmtree(encfolderPATH)
+            shutil.rmtree(encfolderPATH, ignore_errors=True)
             print('\nRemoving the encrypted folder...')
             sleep(1.5)
         elif answer == 'n':
@@ -226,7 +226,7 @@ def run_folderlocker_decryption():
         print('\nDecryption is not successful!')
         print('Please enter a correct key')
         # since the decryption is not successful, when can delete the created folder
-        shutil.rmtree(encfolderPATH[:-3])
+        shutil.rmtree(encfolderPATH[:-3], ignore_errors=True)
 
 
 def run_folderlocker():
