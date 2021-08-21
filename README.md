@@ -12,6 +12,8 @@ I have programmed the code so that when you decrypt the folder, a new folder wil
 
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
+(Above procedures also applies for FileLocker.exe)
+
 >**WARNING**: Even if your key is wrong, the program will
 decrypt the folder and produce a result, *if it has an acceptable byte number*. In this case, be careful about deleting the encrypted folder since the decrypted folder will be unreadable due to the wrong key. As for advice, always open and read the decrypted folder before you delete the encrypted one.
 
