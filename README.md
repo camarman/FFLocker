@@ -13,7 +13,7 @@ I have programmed the code so that when you decrypt the folder, a new folder wil
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
 >**WARNING**: Even if your key is wrong, the program will
-decrypt the encrypted folder and produce a result if it has an acceptable byte number. In this case, be careful about deleting the encrypted folder since the decrypted folder will be nob-readable due to the wrong key.
+decrypt the encrypted folder and produce a result if it has an acceptable byte number. In this case, be careful about deleting the encrypted folder since the decrypted folder will be nob-readable due to the wrong key. As for advice, always open and read the decrypted folder before you delete the encrypted one.
 
 > **Note**: Since FolderLocker.exe or FileLocker.exe is trying to overwrite your file/folder for encryption/decryption purposes, you may encounter a warning, If you have an anti-virus program. In that case, you can always run the `.py` files.
 
