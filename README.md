@@ -21,12 +21,20 @@ decrypt the encrypted folder and produce a result if it has an acceptable byte n
 
 ### File Locker
 
-A snapshot from the encryption process of a pdf file
+A snapshot from the encryption process of a text file
 
-A snapshot from the decryption process of the same pdf file
+![enc_file](https://user-images.githubusercontent.com/45866787/130332397-6128f2e6-c5e8-45da-b100-5f67fbead6fe.png)
+
+A snapshot from the decryption process of the same text file
+
+![dec_file](https://user-images.githubusercontent.com/45866787/130332401-0d80f741-adf6-412d-a651-43713f838c83.png)
 
 ### Folder Locker
 
 A snapshot from the encryption process of a test folder
 
+![enc_folder](https://user-images.githubusercontent.com/45866787/130332404-d7994f63-a329-4e62-be24-14eb5bcb26fa.png)
+
 A snapshot from the decryption process of a test folder
+
+![dec_folder](https://user-images.githubusercontent.com/45866787/130332405-f1486188-7e88-4617-969d-bed46727cab6.png)
