@@ -12,7 +12,9 @@ I have programmed the code so that when you decrypt the folder, a new folder wil
 
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
-> **Note**: Since Folder Locker.exe or File Locker.exe is trying to overwrite your file/folder for encryption/decryption purposes, you may encounter a warning, If you have an anti-virus program. If running  `.exe` does not feel safe, you can always run the `.py` files.
+> **Note**: Since Folder Locker.exe or File Locker.exe is trying to overwrite your file/folder for encryption/decryption purposes, you may encounter a warning, If you have an anti-virus program.
+>
+> If running  `.exe` does not feel safe, you can always run the `.py` files.
 
 ## Examples
 
