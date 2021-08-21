@@ -12,7 +12,10 @@ I have programmed the code so that when you decrypt the folder, a new folder wil
 
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
-> **Note**: Since Folder Locker.exe or File Locker.exe is trying to overwrite your file/folder for encryption/decryption purposes, you may encounter a warning, If you have an anti-virus program. In that case, you can always run the `.py` files.
+>**WARNING**: Even if your key is wrong, the program will
+decrypt the encrypted folder and produce a result if it has an acceptable byte number. In this case, be careful about deleting the encrypted folder since the decrypted folder will be nob-readable due to the wrong key.
+
+> **Note**: Since FolderLocker.exe or FileLocker.exe is trying to overwrite your file/folder for encryption/decryption purposes, you may encounter a warning, If you have an anti-virus program. In that case, you can always run the `.py` files.
 
 ## Examples
 
@@ -20,18 +23,10 @@ After the decryption is complete, you can permanently delete the encrypted folde
 
 A snapshot from the encryption process of a pdf file
 
-![filelocker](https://user-images.githubusercontent.com/45866787/130237326-3cf06735-c1c1-449d-8fb3-a609715d0d68.png)
-
 A snapshot from the decryption process of the same pdf file
-
-![decry](https://user-images.githubusercontent.com/45866787/130237348-fc24783e-bb19-4d6d-9e0b-7fc72a5f3197.png)
 
 ### Folder Locker
 
 A snapshot from the encryption process of a test folder
 
-![end_folder](https://user-images.githubusercontent.com/45866787/130242453-90420264-c120-4430-b4f0-ccc24e9caf4b.png)
-
 A snapshot from the decryption process of a test folder
-
-![dec_folder](https://user-images.githubusercontent.com/45866787/130242624-7efeafe4-3606-45cb-bad4-83548d8df582.png)
