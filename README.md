@@ -4,18 +4,20 @@ Locking Files or Folders in Windows OS
 
 (It may also work for other OS. However, it's not tested)
 
-The FolderLocker system uses AES encryption. You can either create a key with 16, 24, and 32 bytes (In this process, the string object will turn into bytes) or generate a random key.
+The FolderLocker system uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
 
-After you lock the folder, the program will change the binary data of the folder, and it will overwrite the files. To read/open the encrypted files, you'll need a key.
+The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save/remember it.
 
-I have programmed the code so that when you decrypt the folder, a new folder will be created as a precaution against entering the wrong key.
+After you lock the folder, the program will change the binary data of the folder, and it will overwrite the files. To read/open the encrypted files, you have to enter the password.
+
+I have programmed the code so that when you decrypt the folder, a new folder will be created as a precaution against entering the wrong password.
 
 After the decryption is complete, you can permanently delete the encrypted folder via a single command.
 
-(Above procedures also applies for FileLocker)
+>**WARNING**: Even your password is wrong, the program will
+decrypt the folder and produce a result, *if it has a sufficient number of characters (byte number)*. In this case, be careful about deleting the encrypted folder since the decrypted folder will be unreadable due to the wrong password. As for advice, always open and read the decrypted folder before you delete the encrypted one.
 
->**WARNING**: Even if your key is wrong, the program will
-decrypt the folder and produce a result, *if it has an acceptable byte number*. In this case, be careful about deleting the encrypted folder since the decrypted folder will be unreadable due to the wrong key. As for advice, always open and read the decrypted folder before you delete the encrypted one.
+(Above procedures also applies for FileLocker)
 
 > **Note**: FolderLocker.exe and FileLocker.exe programs are based on overwriting your file/folder for encryption/decryption purposes. For this reason, if you have an anti-virus program, you may encounter a warning.
 
