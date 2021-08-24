@@ -1,6 +1,6 @@
 #----- File Locker for Windows OS -----#
 
-#--- The program can encrypt these file types---#
+#--- The program can encrypt these file extensions---#
 
 # .jpg
 # .txt
@@ -13,39 +13,51 @@
 # .wav
 # .m4a
 
-# Note: It may encrypt other file types as well
+# Note: It may encrypt other file extensions as well
 
 # ----- Importing Modules ----- #
 
 import os
 import secrets
+from string import ascii_letters
 from time import sleep
 
 from Crypto import Random
 from Crypto.Cipher import AES
 
-# ----- Generating Random Key ----- #
+# ----- Generating Random Password ----- #
 
 
-def generate_key(nbytes):
-    return secrets.token_bytes(nbytes)
+def generate_random_password():
+    flag = True
+    print('\nPlease enter the number of bytes in the password')
+    print('Allowed Values:16, 24, 32')
+    while flag:
+        nbytes = int(input('Byte number:'))
+        if nbytes in [16, 24, 32]:
+            flag = False
+        else:
+            print('ERROR: Please enter one of the options given above')
+    random_password = ''
+    ascii_extended = ascii_letters + '0123456789' + r'!"#$%&()*+,-./;<>?@[\]^_`{|}~'
+    for i in range(nbytes):
+        random_password += secrets.choice(ascii_extended)
+    return random_password
 
-# ----- Generating User Entered Key ----- #
+# ----- Generating User Entered Password ----- #
 
 
-def generate_user_entered_key():
-    avaliable_nbytes = [16, 24, 32]
+def generate_password():
     flag = True
     while flag:
-        key = input('\nEnter a Key:')
-        keyLen = len(key)
-        if keyLen in avaliable_nbytes:
+        password = input('\nEnter a password:')
+        passwordLen = len(password)
+        if passwordLen in [16, 24, 32]:
             flag = False
         else:
             print(
-                'Error: Your key has {} characters. The length of the key must be 16, 24 or 32'.format(keyLen))
-    key_bytes = str.encode(key)
-    return key_bytes
+                'ERROR: Your password have {} characters. The length of the password must be 16, 24 or 32'.format(passwordLen))
+    return password
 
 # ----- Main Functions ----- #
 
@@ -99,110 +111,95 @@ def run_filelocker_encryption():
     print('\nPlease type the path of the file')
     flagPATH = True
     while flagPATH:
-        filePATH = r'{}'.format(input(''))
+        filePATH = input('PATH:')
         if filePATH[-3:] == 'enc':
-            print('Error: The encryption cannot be performed on the .enc files!')
+            print('ERROR: Encryption cannot be applied to the files with .enc extension!')
             print('\nPlease re-enter the path')
         elif filePATH[-3:] != 'enc':
             flagPATH = False
-    print('\nPlease choose an encryption option')
+    print('\nPlease choose the type of the encryption')
     print('------------')
-    print('Type "rk" to generate random key')
-    print('Type "uk" to create key yourself')
+    print('Type "rp" to generate random password')
+    print('Type "up" to enter a password')
     print('------------')
-    flag_key_type = True
-    while flag_key_type:
-        key_type = input('Key Type:')
-        if key_type != 'uk' and key_type != 'rk':
-            print('Error: Please type one of the commands given above!\n')
+    flag_encryption_type = True
+    while flag_encryption_type:
+        encryption_type = input('Encryption type:')
+        if encryption_type != 'rp' and encryption_type != 'up':
+            print('ERROR: Please type one of the commands given above!')
         else:
-            flag_key_type = False
-    # Generated key via user input
-    if key_type == 'uk':
-        key = generate_user_entered_key()
-        print('\nIMPORTANT: Save this key to decrypt your files in the future!')
-        print('KEY:{}\n'.format(key.decode('utf-8')))
-        print('Encrypting the file...')
+            flag_encryption_type = False
+    # Generating random password
+    if encryption_type == 'rp':
+        password = generate_random_password()
+        print('Generating random password...')
         sleep(1.5)
-        encrypt_file(filePATH, key)
-        print('Encryption is successful!')
-    # Generating random keys
-    elif key_type == 'rk':
-        nbytes = 0
-        while nbytes not in [16, 24, 32]:
-            print('\nPlease enter the number of bytes in the key - (16, 24, 32)')
-            nbytes = int(input('Byte num:'))
-            if nbytes in [16, 24, 32]:
-                print('Generating random key...\n')
-                sleep(1.5)
-                key = generate_key(nbytes)
-                print(
-                    '\nIMPORTANT: Save this key to decrypt your file in the future!')
-                print('KEY:{}\n'.format(key.hex()))
-                print('Encrypting the file...')
-                sleep(1.5)
-                encrypt_file(filePATH, key)
-                print('Encryption is successful!')
+    elif encryption_type == 'up':
+        password = generate_password()
+    key = str.encode(password)
+    print('\nIMPORTANT: Save this password to decrypt your file!')
+    print('PASSWORD:{}\n'.format(password))
+    print('Encrypting the file...')
+    sleep(1.5)
+    encrypt_file(filePATH, key)
+    print('Encryption is successful!')
 
 
 def run_filelocker_decryption():
     print('\nPlease type the path of the file')
     flagPATH = True
     while flagPATH:
-        encfilePATH = r'{}'.format(input(''))
+        encfilePATH = input('PATH:')
         if encfilePATH[-3:] != 'enc':
-            print('Error: The decryption cannot be performed on the non .enc files')
+            print('ERROR: Decryption can only be applied to the files with .enc extension!')
             print('\nPlease re-enter the path')
         else:
             flagPATH = False
-    print('\nPlease enter the key to decrypt the file')
-    key = input('Key:')
-    try:
-        # if the key is generated from random bytes
-        key = bytes.fromhex(key)
-    except:
-        # if the key is generated by the user input
-        key = str.encode(key)
+    print('\nPlease enter the password')
+    password = input('PASSWORD:')
+    key = str.encode(password)
     print('\nDecrypting the file...')
     sleep(1.5)
     try:
         decrypt_file(encfilePATH, key)
-        print('\nDecryption is successful!')
-        print('\nDo you want to remove the encrypted file? y/n')
+        print('Decryption is successful!')
+        print('\nDo you want to remove the encrypted file?')
+        print('[Y]: Yes\t[N]: No')
         flag_answer = True
         while flag_answer:
             answer = input('')
-            if answer != 'y' and answer != 'n':
-                print('Error: Please type one of the commands given above!\n')
+            if answer != 'Y' and answer != 'N':
+                print('ERROR: Please type one of the commands given above!')
             else:
                 flag_answer = False
-        if answer == 'y':
+        if answer == 'Y':
             os.remove(encfilePATH)
             print('\nRemoving the encrypted file...')
             sleep(1.5)
-        elif answer == 'n':
+        elif answer == 'N':
             pass
     except:
         print('\nDecryption is not successful!')
-        print('Please enter a correct key')
+        print('Please enter the correct password')
 
 
 def run_filelocker():
-    print('--Welcome to the File Locker--\n')
-    print('Do you want to encrypt(e) or decrypt(d) the file?  e/d')
+    print('\t--Welcome to the File Locker--\n')
+    print('Do you want to encrypt or decrypt the file?')
+    print('[E]: Encrypt\t[D]: Decrypt')
     flag_method = True
     while flag_method:
         answer = input('')
-        if answer != 'e' and answer != 'd':
-            print('Error: Please type one of the commands given above!\n')
+        if answer != 'E' and answer != 'D':
+            print('ERROR: Please type one of the commands given above!')
         else:
             flag_method = False
-    if answer == 'e':
+    if answer == 'E':
         run_filelocker_encryption()
         os.system('pause')
-        print('\nThis page will close in 90 seconds. Please save the key to decrypt files in the future!')
+        print('\nThis page will close in 90 seconds. Please save the password to decrypt the file!')
         sleep(90)
-    elif answer == 'd':
+    elif answer == 'D':
         run_filelocker_decryption()
         os.system('pause')
         print('\nThis page will close in 10 seconds')
