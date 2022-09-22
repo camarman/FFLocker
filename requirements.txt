@@ -1,9 +1,4 @@
 # requirements for FFlocker
-os
 secrets
-shutil
-sys
 pathlib
-string
-time
 pycryptodome

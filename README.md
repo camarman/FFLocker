@@ -1,6 +1,6 @@
 # FFLocker
 
-Locking files or folders in Linux (it may also work in Windows, however it's not tested). The program can encrypt these file extensions and more;
+Locking files/folders in Linux (it may also work in Windows, however it's not tested). The program can encrypt these file extensions and more;
 
     .jpg, .txt, .pdf, .xlsx, .ppt/pptx, .docx, .png, .py, .wav, .m4a
 
@@ -8,7 +8,7 @@ Locking files or folders in Linux (it may also work in Windows, however it's not
 
 Clone the repository via
 
-    git clone https://github.com/seVenVo1d/folder_locker.git
+    git clone https://github.com/seVenVo1d/FFLocker.git
 
 To install the required packages for FFLocker type
 
