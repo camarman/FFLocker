@@ -25,26 +25,3 @@ After you lock the file/folder, the program will change the binary data of the f
 I have programmed the code so that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. After the decryption is complete, you can permanently delete the encrypted file/folder via a single command.
 
 >:exclamation:WARNING: Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (byte number)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
-
-## Examples
-
-### File Locker
-
-A snapshot from the encryption process of a file
-
-![enc_file](https://user-images.githubusercontent.com/45866787/191679100-29bd2449-b059-415a-9fc2-462b9fcf43f0.png)
-
-A snapshot from the decryption process of the same file
-
-![dec_file](https://user-images.githubusercontent.com/45866787/191679132-a7675273-ee4e-4eb1-9858-1275c5918e03.png)
-
-### Folder Locker
-
-A snapshot from the encryption process of a folder
-
-![enc_folder](https://user-images.githubusercontent.com/45866787/191679153-1ccfe5b7-c307-4d8b-8e5d-b499c2223ade.png)
-
-A snapshot from the decryption process of a folder
-
-![dec_folder](https://user-images.githubusercontent.com/45866787/191679189-0c1a4f9e-c8f7-4143-9c46-6a5c234fe820.png)
-
