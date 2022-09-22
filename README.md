@@ -14,6 +14,8 @@ To install the required packages type:
 
     python3 -m pip install -r requirements.txt
 
+In some Linux distributions, the required packages are already available, so there's no need to install any packages.
+
 ## Description
 
 FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
