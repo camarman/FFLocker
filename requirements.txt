@@ -1,17 +1,9 @@
-For run_filelocker.py
-
-1. os
-2. secrets
-3. string
-4. time
-5. pycryptodome (for Crypto)
-
-For run_folderlocker.py
-
-1. os
-2. secrets
-3. shutil
-4. pathlib
-5. string
-6. time
-7. pycryptodome (for Crypto)
+# requirements for FFlocker
+os
+secrets
+shutil
+sys
+pathlib
+string
+time
+pycryptodome
