@@ -32,10 +32,19 @@ I have programmed the code so that when you decrypt the file/folder, a new file/
 
 A snapshot from the encryption process of a file
 
+![enc_file](https://user-images.githubusercontent.com/45866787/191679100-29bd2449-b059-415a-9fc2-462b9fcf43f0.png)
+
 A snapshot from the decryption process of the same file
+
+![dec_file](https://user-images.githubusercontent.com/45866787/191679132-a7675273-ee4e-4eb1-9858-1275c5918e03.png)
 
 ### Folder Locker
 
 A snapshot from the encryption process of a folder
 
+![enc_folder](https://user-images.githubusercontent.com/45866787/191679153-1ccfe5b7-c307-4d8b-8e5d-b499c2223ade.png)
+
 A snapshot from the decryption process of a folder
+
+![dec_folder](https://user-images.githubusercontent.com/45866787/191679189-0c1a4f9e-c8f7-4143-9c46-6a5c234fe820.png)
+
