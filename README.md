@@ -10,7 +10,7 @@ Clone the repository via
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 
-To install the required packages for FFLocker type
+To install the required packages type:
 
     python3 -m pip install -r requirements.txt
 
@@ -22,18 +22,18 @@ After you lock the file/folder, the program will change the binary data of the f
 
 I have programmed the code so that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. After the decryption is complete, you can permanently delete the encrypted file/folder via a single command.
 
->WARNING :exclamation: Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (byte number)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
+>:exclamation:WARNING: Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (byte number)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
 
 ## Examples
 
 ### File Locker
 
-A snapshot from the encryption process of a text file
+A snapshot from the encryption process of a file
 
-A snapshot from the decryption process of the same text file
+A snapshot from the decryption process of the same file
 
 ### Folder Locker
 
-A snapshot from the encryption process of a test folder
+A snapshot from the encryption process of a folder
 
-A snapshot from the decryption process of a test folder
+A snapshot from the decryption process of a folder
