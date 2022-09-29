@@ -1,4 +1,5 @@
 # requirements for FFlocker
-secrets
-pathlib
 pycryptodome
+
+# other packages are already avaliable in the python3. If they are missing in your computer,
+# you can always install it via `python3 -m pip install "package_name"
