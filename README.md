@@ -14,7 +14,7 @@ To install the required packages type:
 
     python3 -m pip install -r requirements.txt
 
-In some Linux distributions, the required packages are already available, so there's no need to install any packages.
+In some Linux distributions, the required packages are already available, so there's no need to install any packages other than `pycryptodome`.
 
 ## Description
 
@@ -43,12 +43,3 @@ Encryption process of a folder
 Decryption process of a folder
 
 ![dec_folder](https://user-images.githubusercontent.com/45866787/193124688-11459f63-5d6d-45d5-88fb-aa732c9ea8c4.png)
-
-
-
-
-
-
-
-
-
