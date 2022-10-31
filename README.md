@@ -1,6 +1,6 @@
 # FFLocker
 
-Locking files/folders in Linux/Windows. The program can encrypt these file extensions and more;
+Locking files/folders in GNU/Linux and Windows. The program can encrypt these file extensions and more;
 
     .jpg, .txt, .pdf, .xlsx, .ppt/pptx, .docx, .png, .py, .wav, .m4a
 
