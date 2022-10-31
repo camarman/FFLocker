@@ -14,7 +14,7 @@ To install the required packages type:
 
     python3 -m pip install -r requirements.txt
 
-In some Linux distributions, the required packages are already available, so there's no need to install any packages other than `pycryptodome`.
+In some GNU/Linux distributions, the required packages are already available, so there's no need to install any packages other than `pycryptodome`.
 
 ## Description
 
