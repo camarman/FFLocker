@@ -1,8 +1,6 @@
 # FFLocker
 
-Locking files/folders in GNU/Linux and Windows. The program can encrypt these file extensions and more;
-
-    .jpg, .txt, .pdf, .xlsx, .ppt/pptx, .docx, .png, .py, .wav, .m4a
+Locking files/folders in GNU/Linux and Windows. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
 
 ## Installation
 
@@ -18,7 +16,7 @@ In some GNU/Linux distributions, the required packages are already available, so
 
 ## Description
 
-FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
+FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
 
 After you lock the file/folder, the program will change the binary data of the file/folder, and it will overwrite the files. To read/open the encrypted files, you have to enter the password.
 
