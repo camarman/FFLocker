@@ -1,18 +1,6 @@
 # FFLocker
 
-Locking files/folders in GNU/Linux and Windows. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
-
-## Installation
-
-Clone the repository via
-
-    git clone https://github.com/seVenVo1d/FFLocker.git
-
-To install the required packages type:
-
-    python3 -m pip install -r requirements.txt
-
-In some GNU/Linux distributions, the required packages are already available, so there's no need to install any packages other than `pycryptodome`.
+Locking files/folders in GNU/Linux. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
 
 ## Description
 
@@ -22,9 +10,21 @@ After you lock the file/folder, the program will change the binary data of the f
 
 I have programmed the code so that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. After the decryption is complete, you can permanently delete the encrypted file/folder via a single command.
 
-> *WARNING* :exclamation:
-> -
-> Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (byte number)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
+> ### WARNING
+>
+> Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
+
+## Installation
+
+Clone the repository via
+
+    git clone https://github.com/seVenVo1d/FFLocker.git
+
+to your desired directory. FFLocker requires `pycryptodome` which can be installed via
+
+    python3 -m pip install pycryptodome
+
+Other packages are already available in Python 3. However, if they are missing, you can always install them via `python3 -m pip install <package_name>`.
 
 ## Examples
 

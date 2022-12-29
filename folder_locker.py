@@ -1,4 +1,4 @@
-#----- Folder Locker for GNU/LINUX -----#
+# ----- Folder Locker for GNU/LINUX ----- #
 
 # ----- Importing Modules ----- #
 
