@@ -43,3 +43,7 @@ Encryption process of a folder
 Decryption process of a folder
 
 ![dec_folder](https://user-images.githubusercontent.com/45866787/193124688-11459f63-5d6d-45d5-88fb-aa732c9ea8c4.png)
+
+## Disclaimer
+
+Developers assume no liability and are not responsible for any misuse or damage cause by this program.
