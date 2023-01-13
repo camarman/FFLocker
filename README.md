@@ -46,4 +46,4 @@ Decryption process of a folder
 
 ## Disclaimer
 
-Developers assume no liability and are not responsible for any misuse or damage cause by this program.
+I accept no liability and not responsible for any misuse or damage cause by this program.
