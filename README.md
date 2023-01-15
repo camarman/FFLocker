@@ -1,6 +1,6 @@
 # FFLocker
 
-Locking files/folders in GNU/Linux. **The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.**
+Locking files/folders in GNU/Linux. *The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.*
 
 ## Description
 
@@ -24,25 +24,19 @@ to your desired directory. FFLocker requires `pycryptodome` which can be install
 
     python3 -m pip install pycryptodome
 
-Other packages are already available in Python 3. However, if they are missing, you can always install them via `python3 -m pip install <package_name>`.
+Other packages are already available in python3. However, if they are somehow missing, you can always install them via
+
+    python3 -m pip install <package_name>
 
 ## Examples
 
-Encryption process of a file
+Encryption process of a file         |  Decryption process of a file
+:-------------------------:|:-------------------------:
+![enc_file](https://user-images.githubusercontent.com/45866787/193124480-0827db5a-3dc0-4e33-9c86-0972662f139b.png)  |  ![dec_file](https://user-images.githubusercontent.com/45866787/193124625-71160d5a-9f89-4f9f-a842-dadcc89399e5.png)
 
-![enc_file](https://user-images.githubusercontent.com/45866787/193124480-0827db5a-3dc0-4e33-9c86-0972662f139b.png)
-
-Decryption process of a file
-
-![dec_file](https://user-images.githubusercontent.com/45866787/193124625-71160d5a-9f89-4f9f-a842-dadcc89399e5.png)
-
-Encryption process of a folder
-
-![enc_folder](https://user-images.githubusercontent.com/45866787/193124673-ce1f931a-848b-4d11-8a4f-945b917c839b.png)
-
-Decryption process of a folder
-
-![dec_folder](https://user-images.githubusercontent.com/45866787/193124688-11459f63-5d6d-45d5-88fb-aa732c9ea8c4.png)
+Encryption process of a folder        |  Decryption process of a folder
+:-------------------------:|:-------------------------:
+![enc_folder](https://user-images.githubusercontent.com/45866787/193124673-ce1f931a-848b-4d11-8a4f-945b917c839b.png) | ![dec_folder](https://user-images.githubusercontent.com/45866787/193124688-11459f63-5d6d-45d5-88fb-aa732c9ea8c4.png)
 
 ## Disclaimer
 
