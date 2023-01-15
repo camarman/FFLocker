@@ -20,7 +20,7 @@ Clone the repository via
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 
-to your desired directory. FFLocker requires `pycryptodome` which can be installed via
+to your desired directory. FFLocker requires `pycryptodome` which can be installed by running
 
     python3 -m pip install pycryptodome
 
@@ -28,7 +28,7 @@ Other packages are already available in python3. However, if they are somehow mi
 
     python3 -m pip install <package_name>
 
-## Examples
+## Overview
 
 Encryption process of a file         |  Decryption process of a file
 :-------------------------:|:-------------------------:
