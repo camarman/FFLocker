@@ -1,6 +1,6 @@
 # FFLocker
 
-Locking files/folders in GNU/Linux via text-based user interfaces (TUI).
+Locking files/folders in GNU/Linux via text-based user interface (TUI).
 
 *The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.*
 
