@@ -1,6 +1,6 @@
-# ----- File Locker for GNU/LINUX ----- #
+# ========== File Locker for GNU/LINUX ==========
 
-# ----- Importing Modules ----- #
+# ========== Importing Modules ==========
 
 import os
 import secrets
@@ -11,7 +11,7 @@ from time import sleep
 from Crypto import Random
 from Crypto.Cipher import AES
 
-# ----- Spinning Cursor Animation ----- #
+# ========== Spinning Cursor Animation ==========
 
 def spinning_cursor():
     while True:
@@ -20,8 +20,7 @@ def spinning_cursor():
 
 spinner = spinning_cursor()
 
-
-# ----- Generating Random Password ----- #
+# ========== Generating Random Password ==========
 
 def generate_random_password():
     flag = True
@@ -40,7 +39,7 @@ def generate_random_password():
     return random_password
 
 
-# ----- Generating User Entered Password ----- #
+# ========== Generating User Entered Password ==========
 
 def generate_password():
     flag = True
@@ -55,7 +54,7 @@ def generate_password():
     return password
 
 
-# ----- Main Functions ----- #
+# ========== Main Functions ==========
 
 def pad(s):
     padding_size = AES.block_size - len(s) % AES.block_size
@@ -100,7 +99,7 @@ def decrypt_file(encfilePATH, key):
     out_file.close()
 
 
-#----- Running Locker ------#
+# ========== Running Locker ==========
 
 def run_filelocker_encryption():
     print('\nPlease enter the path of the file')

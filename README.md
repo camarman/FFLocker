@@ -26,7 +26,7 @@ to your desired directory. FFLocker requires `pycryptodome` which can be install
 
     python3 -m pip install pycryptodome
 
-Other packages are already available in python3. However, if they are somehow missing, you can always install them via
+Other packages are already available in `python3`. However, if they are somehow missing, you can always install them via
 
     python3 -m pip install <package_name>
 

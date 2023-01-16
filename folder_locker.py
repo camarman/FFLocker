@@ -1,6 +1,6 @@
-# ----- Folder Locker for GNU/LINUX ----- #
+# ========== Folder Locker for GNU/LINUX ==========
 
-# ----- Importing Modules ----- #
+# ========= Importing Modules ==========
 
 import os
 import secrets
@@ -13,7 +13,7 @@ from time import sleep
 from Crypto import Random
 from Crypto.Cipher import AES
 
-# ----- Spinning Cursor Animation ----- #
+# ========== Spinning Cursor Animation ==========
 
 def spinning_cursor():
     while True:
@@ -22,8 +22,7 @@ def spinning_cursor():
 
 spinner = spinning_cursor()
 
-
-# ----- Generating Random Password ----- #
+# ========== Generating Random Password ==========
 
 def generate_random_password():
     flag = True
@@ -43,7 +42,7 @@ def generate_random_password():
     return random_password
 
 
-# ----- Generating User Entered Password ----- #
+# ========== Generating User Entered Password ==========
 
 def generate_password():
     flag = True
@@ -58,7 +57,7 @@ def generate_password():
     return password
 
 
-# ----- Main Functions ----- #
+# ========== Main Functions ==========
 
 def pad(s):
     padding_size = AES.block_size - len(s) % AES.block_size
@@ -105,8 +104,7 @@ def decrypt_file(encfolderPATH, encfilePATH, key):
 def get_all_filePaths(folderPATH):
     result = []
     for dirpath, dirnames, filenames in os.walk(folderPATH):
-        result.extend([os.path.join(dirpath, filename)
-                      for filename in filenames])
+        result.extend([os.path.join(dirpath, filename) for filename in filenames])
     return result
 
 
@@ -126,7 +124,8 @@ def mkdir_folder(folderPATHS):
         p = Path(folderPATH)
         p.mkdir(parents=True, exist_ok=True)
 
-# ----- Encrypting/Decrypting every file inside a folder ----- #
+
+# ========== Encrypting/Decrypting every file inside a folder ==========
 
 def encrypt_folder(folderPATH, key):
     for filePATH in get_all_filePaths(folderPATH):
@@ -140,7 +139,7 @@ def decrypt_folder(encfolderPATH, key):
         decrypt_file(encfolderPATH, encfilePATH, key)
 
 
-#----- Running Locker ------#
+# ========== Running Locker ==========
 
 def run_folderlocker_encryption():
     print('\nPlease type the path of the folder')
