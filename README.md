@@ -12,6 +12,8 @@ After you lock the file/folder, the program will change the binary data of the f
 
 I have programmed the code so that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. After the decryption is complete, you can permanently delete the encrypted file/folder via a single command.
 
+Additionally, I have also programmed the code in such a way that every file and folder receives `.enc` and `ENC` extensions respectively. If your pathname does not contain these extensions, the decryption process does not start.
+
 > ### WARNING
 >
 > Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
