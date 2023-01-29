@@ -4,8 +4,6 @@ Locking files/folders in GNU/Linux via text-based user interface (TUI).
 
 *The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.*
 
-> It's tested for GNU/Linux, however it should also work in macOS. If you ever encounter with a problem, feel free to create an issue.
-
 ## Description
 
 FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
