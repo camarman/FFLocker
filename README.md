@@ -5,7 +5,7 @@ Locking files/folders in GNU/Linux via text-based user interface (TUI).
 *The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.*
 
 ## Description
-
+It
 FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
 
 After you lock the file/folder, the program will change the binary data of the file/folder, and it will overwrite the files. To read/open the encrypted files, you have to enter the password.
@@ -54,7 +54,7 @@ Encryption process of a folder        |  Decryption process of a folder
 
 ## Upcoming Features
 
-I am thinking to implement a command line interface (CLI) for FFLocker. And it will probably look like this
+I am thinking to implement a command line interface (CLI), and it will probably look like this:
 
     $ fflocker -Fe [path]
     $ fflocker -De [path]
