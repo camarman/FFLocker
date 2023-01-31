@@ -34,11 +34,11 @@ FFLocker requires `pycryptodome` which can be installed by running
 
 ## User Guide
 
-To start the file locking process simply run
+To start the *file locking* process simply run
 
     python3 file_locker.py
 
-Similarly, to start the folder locking process run
+Similarly, to start the *folder locking* process run
 
     python3 folder_locker.py
 
