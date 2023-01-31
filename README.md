@@ -20,7 +20,11 @@ Additionally, I have also programmed the code in such a way that every file and 
 
 ## Installation
 
-You can clone the repository via
+You can easily install the FFLocker via `pip`
+
+    python3 -m pip install fflocker
+
+or directly clone
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 
@@ -36,11 +40,11 @@ FFLocker requires `pycryptodome` which can be installed by running
 
 To start the *file locking* process simply run
 
-    python3 file_locker.py
+    python3 -m fflocker.file_locker
 
 Similarly, to start the *folder locking* process run
 
-    python3 folder_locker.py
+    python3 -m fflocker.folder_locker
 
 ## Overview
 
@@ -54,7 +58,7 @@ Encryption process of a folder        |  Decryption process of a folder
 
 ## Upcoming Features
 
-I am thinking to implement a command line interface (CLI), and it will probably look like this:
+I am thinking to implement a command line interface (CLI) and it will probably look like this:
 
     $ fflocker -Fe [path]
     $ fflocker -De [path]

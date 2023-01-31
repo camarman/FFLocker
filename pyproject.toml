@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fflocker"
+version = "1.0"
+authors = [
+  {name="Arman Çam"},
+]
+description = "Locking files/folders in GNU/Linux via text-based user interface (TUI)."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Development Status :: 5 - Production/Stable",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/seVenVo1d/FFLocker"
+"Bug Tracker" = "https://github.com/seVenVo1d/FFLocker/issues"
