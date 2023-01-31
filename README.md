@@ -20,17 +20,27 @@ Additionally, I have also programmed the code in such a way that every file and 
 
 ## Installation
 
-Clone the repository via
+You can clone the repository via
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 
-to your desired directory. FFLocker requires `pycryptodome` which can be installed by running
+to your desired directory.
+
+## Requirements
+
+FFLocker requires `pycryptodome` which can be installed by running
 
     python3 -m pip install pycryptodome
 
-Other packages are already available in `python3`. However, if they are somehow missing, you can always install them via
+## User Guide
 
-    python3 -m pip install <package_name>
+To start the file locking process simply run
+
+    python3 file_locker.py
+
+Similarly, to start the folder locking process run
+
+    python3 folder_locker.py
 
 ## Overview
 
