@@ -14,9 +14,9 @@ I have written the program in such a way that when you decrypt the FF, a new FF 
 
 Additionally, every file and folder receives `.enc` and `ENC` extensions after the encryption process. If your pathname does not contain these extensions, the decryption process does not begin. Similarly, you cannot encrypt the FF if it has a `.enc` or `ENC` extension.
 
-### WARNING
-
-Even if your password is wrong, the program will decrypt the FF and produce a result *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted FF since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted FF before you delete the encrypted one.
+>### WARNING
+>
+>Even if your password is wrong, the program will decrypt the FF and produce a result *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted FF since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted FF before you delete the encrypted one.
 
 ## Installation
 
