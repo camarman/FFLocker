@@ -51,3 +51,17 @@ Encryption process of a file         |  Decryption process of a file
 Encryption process of a folder        |  Decryption process of a folder
 :-------------------------:|:-------------------------:
 ![enc_folder](https://user-images.githubusercontent.com/45866787/193124673-ce1f931a-848b-4d11-8a4f-945b917c839b.png) | ![dec_folder](https://user-images.githubusercontent.com/45866787/193124688-11459f63-5d6d-45d5-88fb-aa732c9ea8c4.png)
+
+## Upcoming Features
+
+I am thinking to implement a command line interface (CLI) for FFLocker. And it will probably look like this
+
+    $ fflocker -Fe [path]
+    $ fflocker -De [path]
+    $ fflocker -Fd [path]
+    $ fflocker -Dd [path]
+
+    -F --File
+    -D --Directory
+    -e --encrypt
+    -d --decrypt
