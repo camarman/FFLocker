@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fflocker"
-version = "1.0"
+version = "1.1"
 authors = [
   {name="Arman Çam"},
 ]
-description = "Locking files/folders in GNU/Linux via text-based user interface (TUI)."
+description = "Locking files/folders [FF] in GNU/Linux via a text-based user interface (TUI)."
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [

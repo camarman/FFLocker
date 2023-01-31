@@ -1,38 +1,36 @@
 # FFLocker
 
-Locking files/folders in GNU/Linux via text-based user interface (TUI).
+Locking files/folders [FF] in GNU/Linux via a text-based user interface (TUI).
 
 *The most important part of the algorithm is that during the locking process, your password is never saved on the computer and only displayed in the terminal for you to save it.*
 
 ## Description
 
-FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
+FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, and 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
 
-After you lock the file/folder, the program will change the binary data of the file/folder, and it will overwrite the files. To read/open the encrypted files, you have to enter the password.
+After you lock the FF, the program will change the binary data and overwrite it. To read/open the encrypted FF, you have to enter the password.
 
-I have programmed the code so that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. After the decryption is complete, you can permanently delete the encrypted file/folder via a single command.
+I have written the program in such a way that when you decrypt the FF, a new FF will be created as a precaution against entering the wrong password. And at the end of the decryption process, you can permanently delete the encrypted FF via a single command (see the **WARNING** section).
 
-Additionally, I have also programmed the code in such a way that every file and folder receives `.enc` and `ENC` extensions respectively. If your pathname does not contain these extensions, the decryption process does not start.
+Additionally, every file and folder receives `.enc` and `ENC` extensions after the encryption process. If your pathname does not contain these extensions, the decryption process does not begin. Similarly, you cannot encrypt the FF if it has a `.enc` or `ENC` extension.
 
-> ### WARNING
->
-> Even your password is wrong, the program will decrypt the file/folder and produce a result, *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
+### WARNING
+
+Even if your password is wrong, the program will decrypt the FF and produce a result *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted FF since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted FF before you delete the encrypted one.
 
 ## Installation
 
-You can easily install the FFLocker via `pip`
+You can install the FFLocker via `pip`
 
     python3 -m pip install fflocker
 
-or directly clone
+or by directly cloning to your desired directory.
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 
-to your desired directory.
-
 ## Requirements
 
-FFLocker requires `pycryptodome` which can be installed by running
+FFLocker requires `pycryptodome`, which can be installed by running
 
     python3 -m pip install pycryptodome
 
@@ -46,7 +44,7 @@ Similarly, to start the *folder locking* process run
 
     python3 -m fflocker.folder_locker
 
-from the terminal (it does not matter what directory you are in, *if* you installed it via `pip`).
+from the terminal.
 
 ## Overview
 
@@ -60,7 +58,7 @@ Encryption process of a folder        |  Decryption process of a folder
 
 ## Upcoming Features
 
-I am thinking to implement a command line interface (CLI) and it will probably look like this:
+I am thinking to implement a command line interface (CLI), and it will probably look like this:
 
     $ fflocker -Fe [path]
     $ fflocker -De [path]
