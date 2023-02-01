@@ -24,7 +24,7 @@ You can install the FFLocker via `pip`
 
     python3 -m pip install fflocker
 
-or by directly cloning to your desired directory.
+or by directly cloning to your desired directory
 
     git clone https://github.com/seVenVo1d/FFLocker.git
 

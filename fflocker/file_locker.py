@@ -5,6 +5,7 @@
 import os
 import secrets
 import sys
+
 from string import ascii_letters
 from time import sleep
 
@@ -194,25 +195,24 @@ def run_filelocker_decryption():
         print('Please enter the correct password')
 
 
-def run_filelocker():
-    print('Starting File Locker...')
-    for _ in range(15):
-        sys.stdout.write(next(spinner))
-        sys.stdout.flush()
-        sleep(0.1)
-        sys.stdout.write('\b')
-    print('Do you want to encrypt or decrypt the file?')
-    print('[e]: encrypt\t[d]: decrypt')
-    flag_method = True
-    while flag_method:
-        answer = input('')
-        if answer != 'e' and answer != 'd':
-            print('ERROR: Please type one of the commands given above!')
-        else:
-            flag_method = False
-    if answer == 'e':
-        run_filelocker_encryption()
-    elif answer == 'd':
-        run_filelocker_decryption()
+# ========== fflocker.file_locker ==========
 
-run_filelocker()
+print('Starting File Locker...')
+for _ in range(15):
+    sys.stdout.write(next(spinner))
+    sys.stdout.flush()
+    sleep(0.1)
+    sys.stdout.write('\b')
+print('Do you want to encrypt or decrypt the file?')
+print('[e]: encrypt\t[d]: decrypt')
+flag_method = True
+while flag_method:
+    answer = input('')
+    if answer != 'e' and answer != 'd':
+        print('ERROR: Please type one of the commands given above!')
+    else:
+        flag_method = False
+if answer == 'e':
+    run_filelocker_encryption()
+elif answer == 'd':
+    run_filelocker_decryption()

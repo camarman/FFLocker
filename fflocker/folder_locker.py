@@ -6,6 +6,7 @@ import os
 import secrets
 import shutil
 import sys
+
 from pathlib import Path
 from string import ascii_letters
 from time import sleep
@@ -238,25 +239,24 @@ def run_folderlocker_decryption():
         shutil.rmtree(encfolderPATH[:-3], ignore_errors=True)
 
 
-def run_folderlocker():
-    print('Starting Folder Locker...')
-    for _ in range(15):
-        sys.stdout.write(next(spinner))
-        sys.stdout.flush()
-        sleep(0.1)
-        sys.stdout.write('\b')
-    print('Do you want to encrypt or decrypt the folder?')
-    print('[e]: encrypt\t[d]: decrypt')
-    flag_method = True
-    while flag_method:
-        answer = input('')
-        if answer != 'e' and answer != 'd':
-            print('ERROR: Please type one of the commands given above!')
-        else:
-            flag_method = False
-    if answer == 'e':
-        run_folderlocker_encryption()
-    elif answer == 'd':
-        run_folderlocker_decryption()
+# ========== fflocker.folder_locker ==========
 
-run_folderlocker()
+print('Starting Folder Locker...')
+for _ in range(15):
+    sys.stdout.write(next(spinner))
+    sys.stdout.flush()
+    sleep(0.1)
+    sys.stdout.write('\b')
+print('Do you want to encrypt or decrypt the folder?')
+print('[e]: encrypt\t[d]: decrypt')
+flag_method = True
+while flag_method:
+    answer = input('')
+    if answer != 'e' and answer != 'd':
+        print('ERROR: Please type one of the commands given above!')
+    else:
+        flag_method = False
+if answer == 'e':
+    run_folderlocker_encryption()
+elif answer == 'd':
+    run_folderlocker_decryption()
