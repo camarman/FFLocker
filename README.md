@@ -8,15 +8,15 @@ Locking files/folders [FF] in GNU/Linux via a text-based user interface (TUI).
 
 FFLocker uses AES encryption. You can either create a password with 16, 24, and 32 characters (which corresponds to 128, 192, and 256 bits, respectively) or generate a random password with the help of the `secrets.choice`.
 
-After you lock the FF, the program will change the binary data and overwrite it. To read/open the encrypted FF, you have to enter the password.
+After you lock the file/folder, the program will change the binary data and overwrite it. To read/open the encrypted file/folder, you have to enter the password.
 
-I have written the program in such a way that when you decrypt the FF, a new FF will be created as a precaution against entering the wrong password. And at the end of the decryption process, you can permanently delete the encrypted FF via a single command (see the **WARNING** section).
+I have written the program in such a way that when you decrypt the file/folder, a new file/folder will be created as a precaution against entering the wrong password. At the end of the decryption process, you can permanently delete the encrypted file/folder via a single command (see the **WARNING** subsection).
 
-Additionally, every file and folder receives `.enc` and `ENC` extensions after the encryption process. If your pathname does not contain these extensions, the decryption process does not begin. Similarly, you cannot encrypt the FF if it has a `.enc` or `ENC` extension.
+Additionally, every file and folder receives `.enc` and `ENC` extensions at the end of the encryption process. If your pathname does not contain these extensions, the decryption process does not begin. Similarly, you cannot encrypt the file/folder if it has a `.enc` or `ENC` extension.
 
 >### WARNING
 >
->Even if your password is wrong, the program will decrypt the FF and produce a result *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted FF since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted FF before you delete the encrypted one.
+>Even if your password is wrong, the program will decrypt the file/folder and produce a result *if it has a sufficient number of characters (bytes)*. In this case, be careful about deleting the encrypted file/folder since the decrypted one will be unreadable due to the wrong password. As for advice, always open and read the decrypted file/folder before you delete the encrypted one.
 
 ## Installation
 
