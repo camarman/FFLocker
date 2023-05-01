@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "fflocker"
-version = "1.1"
+version = "1.2"
 authors = [
   {name="Arman Çam"},
 ]
@@ -19,5 +19,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/seVenVo1d/FFLocker"
-"Bug Tracker" = "https://github.com/seVenVo1d/FFLocker/issues"
+"Homepage" = "https://github.com/camarman/FFLocker"
+"Bug Tracker" = "https://github.com/camarman/FFLocker/issues"
